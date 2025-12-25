@@ -15,3 +15,7 @@ Afterwards the install image is mounted under a newly created tmp directory.
 Following the installtion the image is unmounted and removed from the system to conserve space.
 Personally recommend to run this script every 5-6 months to keep all version of the Agent up to date.
 Set to "Recurring check in" -> "Once per computer" and when an update is needed simply Flush the logs.
+
+ # Remove_root
+Simple script that removes the root priviliges from the primary logged in user on a JAMF managed MacBook.
+Script is configured to keep root access for a number of accounts such as a helpdesk account or breakglass account to be able to restore the MacBook or SSH into said MacBook for remote intervention.
