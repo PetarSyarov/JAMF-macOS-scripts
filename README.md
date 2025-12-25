@@ -19,3 +19,7 @@ Set to "Recurring check in" -> "Once per computer" and when an update is needed 
  # Remove_root
 Simple script that removes the root priviliges from the primary logged in user on a JAMF managed MacBook.
 Script is configured to keep root access for a number of accounts such as a helpdesk account or breakglass account to be able to restore the MacBook or SSH into said MacBook for remote intervention.
+
+ # Restore_root
+The exact opposite of the previous script.
+Used to restore root access to the primary user on a JAMF managed MacBook.
