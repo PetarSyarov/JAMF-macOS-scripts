@@ -34,3 +34,6 @@ Enables SSH globally on the MacBookl, but restricts it only to the specific admi
 
  # Restrict_login
 Restricts access to the MacBook to all users apart from ones specified in the script. 
+
+ # Restore_access
+Restores access for the primary user, does not modify anything for specified system accounts. 
