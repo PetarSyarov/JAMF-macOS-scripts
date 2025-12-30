@@ -37,9 +37,3 @@ Restricts access to the Macbook to all users apart from ones specified in the sc
 
  # Restore_access
 Restores access for the primary user, does not modify anything for specified system accounts. 
-
- # Disable_user_login
-Restricts logins to the device for the primary logged in user. Excludes specified users like LAPS enabled admin accounts or Help Desk accounts. 
-
- # Restore_user_login
-Restores access to the device for the primary user. 
