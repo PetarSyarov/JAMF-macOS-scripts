@@ -44,11 +44,3 @@ Ownership is removed after 1-2 version upgrades.
 
  # Global_Protect_uninstall
 Complete uninstall of Global Protect VPN client.
-
- # Extension_attributes
-
- # Get_HostName
-Provides information on the value of the HostName parameter
-
- # Get_LocalHostName 
-Provides information on the value of the LocalHostName parameter
