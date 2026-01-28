@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Get LocalHostName
 localhostName=$(scutil --get LocalHostName 2>/dev/null)
 

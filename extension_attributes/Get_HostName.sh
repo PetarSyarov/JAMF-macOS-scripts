@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Get HostName
 hostName=$(scutil --get HostName 2>/dev/null)
 
