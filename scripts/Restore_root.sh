@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script to restore admin rights to all local users (non-system accounts)
+# Script to restore admin rights to all local users
 
 # Get list of local users (excluding system accounts)
 users=$(dscl . list /Users | grep -v '^_' | grep -v daemon | grep -v nobody | grep -v root)

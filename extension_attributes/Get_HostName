@@ -1,0 +1,9 @@
+hostName=$(scutil --get HostName 2>/dev/null)
+
+# If hostname is empty, set a fallback
+if [ -z "$hostName" ]; then
+    hostName="(No HostName Set)"
+fi
+
+
+echo "<result>$hostName</result>"
