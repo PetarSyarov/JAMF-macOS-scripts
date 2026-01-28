@@ -1,4 +1,4 @@
- # Explanation for each script in this repo.
+ # Explanation for each script in this repo
 
  # Naming+ 
 This script handles standardized naming of devices in the JAMF management environment. 
@@ -32,18 +32,23 @@ Enables SSH for a specified admin user, preferrably a LAPS enabled user.
 Intended to be used in specific edge cases where user is remote and their work shouldn't be disturbed, hence why this is not pushing for tools like JAMF remote assist.
 Enables SSH globally on the Macbook, but restricts it only to the specific admin user.
 
- # Restrict_login
+ # Remove_access
 Restricts access to the Macbook to all users apart from ones specified in the script. 
 
  # Restore_access
-Restores access for the primary user, does not modify anything for specified system accounts. 
- 
- # Extension_attributes
-A combination of different extension attributes that I implemented for better tracking and sorting of devices 
- 
+Restores access for the primary user, does not modify anything for specified system accounts.
+
  # JetBrainsApps_ChangeOwnership
 Temproray fix to resolve issue where primary user can't upgrade their JetBrains apps ( can work for IntelliJ, PhpStorm, Pycharm etc.... )
 Ownership is removed after 1-2 version upgrades.
 
  # Global_Protect_uninstall
 Complete uninstall of Global Protect VPN client.
+
+ # Extension_attributes
+
+ # Get_HostName
+Provides information on the value of the HostName parameter
+
+ # Get_LocalHostName 
+Provides information on the value of the LocalHostName parameter

@@ -3,18 +3,18 @@ export PATH=/usr/bin:/bin:/usr/sbin:/sbin
 
 [ -f /tmp/debug ] && set -x
 
-# CONFIGURABLES ———————————————————————————————————————————————————————————————————————————
+# CONFIGURABLES
 PREFIX="Company name-Location-Typology-"
 DIGITS_NO=3
 UPDATE_ASSET_TAG=true
 TAG_VIRTUAL_MACHINES=true
 
-# PREREQUISITES —————————————————————————————————————————————————————————————————————————
+# PREREQUISITES
 VM_SUFFIX="-VM"
 JAMF=/usr/local/bin/jamf
 [[ $(sysctl -n machdep.cpu.features kern.hv_vmm_present) =~ ((^|[^[:alnum:]])VMM([^[:alnum:]]|$)|^.*1$) ]] && VM=true || VM=false
 
-# FUNCTIONS ———————————————————————————————————————————————————————————————————————————
+# FUNCTIONS
 
 function exitWith() {
   echo -e "${2}"
@@ -101,7 +101,7 @@ function enforceHostName() {
   return 0
 }
 
-# MAIN SCRIPT ————————————————————————————————————————————————————————————————————————
+# MAIN SCRIPT
 
 COMPUTER_NAME="$(scutil --get ComputerName 2>/dev/null || echo "")"
 

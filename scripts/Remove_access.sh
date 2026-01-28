@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Disable user login script for macOS
-# Skips system users and specific admin users
 
 # Users to exclude from disabling
 EXEMPT_USERS=("LAPS_USER" "HELPDESK_ACCOUNT")

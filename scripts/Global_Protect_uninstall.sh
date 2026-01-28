@@ -1,3 +1,5 @@
+#!/bin/bash
+
 launchctl unload /Library/LaunchAgents/com.paloaltonetworks.gp.pangp* 2>/dev/null
 
 launchctl unload /Library/LaunchDaemons/com.paloaltonetworks.gp.pangp* 2>/dev/null
