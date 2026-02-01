@@ -15,7 +15,6 @@ JAMF=/usr/local/bin/jamf
 [[ $(sysctl -n machdep.cpu.features kern.hv_vmm_present) =~ ((^|[^[:alnum:]])VMM([^[:alnum:]]|$)|^.*1$) ]] && VM=true || VM=false
 
 # FUNCTIONS
-
 function exitWith() {
   echo -e "${2}"
   exit ${1}
@@ -102,7 +101,6 @@ function enforceHostName() {
 }
 
 # MAIN SCRIPT
-
 COMPUTER_NAME="$(scutil --get ComputerName 2>/dev/null || echo "")"
 
 # Generate name from Jamf Computer ID if invalid
