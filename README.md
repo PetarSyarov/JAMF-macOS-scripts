@@ -47,3 +47,6 @@ Counts the number of cycles that a device battery has done.
 
  # Last_Reboot
 Provides exact date and time of when the last device reboot was recorded.
+
+ # Configuration_profile_assignment
+Provides output YES/NO for assignment of specific configuration profile
