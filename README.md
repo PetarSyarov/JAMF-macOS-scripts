@@ -1,5 +1,5 @@
  # --------------------------------------------
- # Explanation for each script in this repo
+  # Explanation for each script in this repo
  # --------------------------------------------
  
  # Naming+
@@ -31,6 +31,9 @@ Temproray fix to resolve issue where primary user can't upgrade their JetBrains 
 
  # Global_Protect_uninstall
 Complete uninstall of Global Protect VPN client.
+
+ # Fix_USB
+Faced several issued with tools like Balena Etcher that overtrim disks and MacOS disk utility was not able to fix them. This fixes them. Not a JAMF script. Using ExFAT since it's the most compatible between MacOS, Linux and Windows endpoints.
 
 # --------------------------------------------
  # Explanation of each Extension Attribute
