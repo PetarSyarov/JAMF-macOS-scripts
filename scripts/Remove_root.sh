@@ -1,9 +1,7 @@
 #!/bin/bash
 
-# Define the accounts to keep as admin
 ADMINS_TO_KEEP=("HelpDesk_account" "LocalAdminAccount")
 
-# Check if running as root
 if [[ "$EUID" -ne 0 ]]; then
   echo "Please run this script as root (sudo)."
   exit 1
@@ -20,7 +18,6 @@ done
 echo "Keeping admin rights for: ${ADMINS_TO_KEEP[*]}"
 echo "Removing admin rights from all other users..."
 
-# Get list of all users in the 'admin' group
 ADMIN_USERS=$(dscl . -read /Groups/admin GroupMembership | cut -d " " -f 2-)
 
 for USER in $ADMIN_USERS; do

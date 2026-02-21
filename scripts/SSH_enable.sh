@@ -1,11 +1,9 @@
 #!/bin/bash
 
-#CONFIGURATION
 ADMIN_USER="ADMIN_ACCOUNT"
 LOGFILE="/var/log/jamf_ssh_setup.log"
 PATH=/usr/bin:/bin:/usr/sbin:/sbin
 
-# Jamf binary detection
 if [[ -x /usr/local/bin/jamf ]]; then
     JAMF="/usr/local/bin/jamf"
 elif [[ -x /usr/local/jamf/bin/jamf ]]; then
@@ -14,12 +12,10 @@ else
     JAMF=""
 fi
 
-
-# LOGGING
 exec >> "$LOGFILE" 2>&1
 echo "$(date): Starting SSH enablement for LAPS admin [$ADMIN_USER]"
 
-#ENSURE USER EXISTS
+
 if ! id "$ADMIN_USER" &>/dev/null; then
     echo "Creating hidden local admin account: $ADMIN_USER"
     /usr/sbin/sysadminctl \
@@ -35,7 +31,6 @@ else
 fi
 
 
-#ENSURE ADMIN PRIVILEGES
 if ! /usr/bin/dscl . -read /Groups/admin GroupMembership 2>/dev/null | grep -qw "$ADMIN_USER"; then
     echo "Adding $ADMIN_USER to admin group"
     /usr/bin/dscl . -append /Groups/admin GroupMembership "$ADMIN_USER" || {
@@ -46,8 +41,6 @@ else
     echo "$ADMIN_USER already in admin group"
 fi
 
-
-#ENABLE SSH SERVICE
 SSH_STATUS="$(/usr/sbin/systemsetup -getremotelogin 2>/dev/null)"
 
 if [[ "$SSH_STATUS" != *"On"* ]]; then
@@ -60,7 +53,6 @@ else
     echo "SSH already enabled"
 fi
 
-# Ensure sshd launch daemon is enabled
 /bin/launchctl enable system/com.openssh.sshd >/dev/null 2>&1 || true
 
 
@@ -83,8 +75,6 @@ else
     echo "$ADMIN_USER already authorized for SSH"
 fi
 
-
-# VERIFICATION
 echo "Verification:"
 /usr/bin/dscl . -read /Groups/com.apple.access_ssh GroupMembership 2>/dev/null || \
     echo "WARNING: Unable to read SSH group membership"
@@ -92,7 +82,6 @@ echo "Verification:"
 echo "Remote Login Status: $(/usr/sbin/systemsetup -getremotelogin 2>/dev/null || echo 'Unknown')"
 
 
-#JAMF INVENTORY UPDATE
 if [[ -n "$JAMF" ]]; then
     echo "Running jamf recon"
     "$JAMF" recon >/dev/null 2>&1 || echo "WARNING: jamf recon failed"

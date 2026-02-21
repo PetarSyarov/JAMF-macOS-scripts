@@ -2,7 +2,6 @@
 
 # Disable user login script for macOS
 
-# Users to exclude from disabling
 EXEMPT_USERS=("LAPS_USER" "HELPDESK_ACCOUNT")
 
 # Function to check if a user is a system user
@@ -27,7 +26,6 @@ is_exempt_user() {
     return 1  # not exempt
 }
 
-# Get all users on the system
 all_users=$(dscl . list /Users)
 
 for user in $all_users; do

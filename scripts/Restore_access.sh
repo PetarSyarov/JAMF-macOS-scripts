@@ -6,7 +6,6 @@
 # Users to exclude from processing
 EXEMPT_USERS=("LAPS_USER" "HELPDESK_USER")
 
-# Function to check if a user is a system user
 is_system_user() {
     local username="$1"
     uid=$(id -u "$username" 2>/dev/null)
@@ -17,7 +16,6 @@ is_system_user() {
     fi
 }
 
-# Function to check if a user is in the exempt list
 is_exempt_user() {
     local username="$1"
     for exempt in "${EXEMPT_USERS[@]}"; do
@@ -28,10 +26,8 @@ is_exempt_user() {
     return 1  # not exempt
 }
 
-# Default shell to restore
 DEFAULT_SHELL="/bin/bash"
 
-# Get all users on the system
 all_users=$(dscl . list /Users)
 
 for user in $all_users; do
@@ -45,7 +41,6 @@ for user in $all_users; do
         continue
     fi
 
-    # Get the current shell
     current_shell=$(dscl . -read /Users/"$user" UserShell | awk '{print $2}')
 
     # Only change shell if it was disabled previously (/usr/bin/false)

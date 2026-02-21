@@ -17,7 +17,7 @@ if [ ! -f "$BIN" ]; then
     exit 1
 fi
 
-# Remove quarantine
+
 xattr -dr com.apple.quarantine "$BIN" 2>>"$LOG"
 
 chmod 755 "$BIN"
