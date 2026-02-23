@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 /usr/bin/defaults write /Library/Preferences/com.apple.NetworkBrowser DisableAirDrop -bool YES
 
 /usr/bin/killall Finder

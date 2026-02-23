@@ -52,7 +52,6 @@ function setComputerName() {
   fi
 }
 
-# Skip if already correct
 function shouldSetNames() {
   local TARGET="${1// /-}"
   local CUR_COMP="$(scutil --get ComputerName 2>/dev/null || echo "")"
@@ -81,11 +80,9 @@ function enforceHostName() {
   # Remove stale HostName entry from preferences
   /usr/libexec/PlistBuddy -c "Delete :System:HostName" /Library/Preferences/SystemConfiguration/preferences.plist 2>/dev/null || true
 
-  # Set via scutil and hostname
   scutil --set HostName "${DESIRED_HOST}" 2>/dev/null || true
   hostname "${DESIRED_HOST}" 2>/dev/null || true
 
-  # Flush caches
   dscacheutil -flushcache 2>/dev/null || true
   killall -HUP mDNSResponder 2>/dev/null || true
   sleep 1
@@ -134,7 +131,7 @@ if ! shouldSetNames "${DESIRED_NAME}"; then
   exit 0
 fi
 
-# Update Asset Tag (optional)
+
 if $UPDATE_ASSET_TAG && ! $VM; then
   if ! "${JAMF}" recon -assetTag "${COMPUTER_NAME}" &> /dev/null; then
     echo "Could not update Asset Tag (non-fatal)."
@@ -149,7 +146,6 @@ setComputerName "${COMPUTER_NAME}"
 # Enforce HostName persistently
 enforceHostName "${DESIRED_NAME}"
 
-# Final inventory update
 "${JAMF}" recon &> /dev/null
 
 echo "Completed successfully — ComputerName, LocalHostName, and HostName set to \"${COMPUTER_NAME}\"."
