@@ -26,7 +26,7 @@ Restricts access to the Macbook to all users apart from ones specified in the sc
  # Restore_access
 Restores access for the primary user, does not modify anything for specified system accounts.
 
- # JetBrainsApps_ChangeOwnership
+ # JetBrainsApps_Fix_Ownership
 Temproray fix to resolve issue where primary user can't upgrade their JetBrains apps ( can work for IntelliJ, PhpStorm, Pycharm etc.... ) Ownership is removed after 1-2 version upgrades. Not JAMF ready, needs to be executed locally via a user with elevated access on the machine.
 
  # Global_Protect_uninstall
