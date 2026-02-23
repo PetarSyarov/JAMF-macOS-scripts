@@ -6,6 +6,6 @@ diskutil list
 
 diskutil unmountDisk force /dev/diskX
 
-# Wipe the partition table and format
+# Wipe the partition table and format drive
 
 sudo diskutil eraseDisk ExFAT USB GPT /dev/diskX
