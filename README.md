@@ -1,5 +1,5 @@
  # --------------------------------------------
-  # Explanation for each script in this repo
+  # Scripts and Policies
  # --------------------------------------------
  
  # Naming+
@@ -42,7 +42,7 @@ Following the official documentaion from Symantec for DLP uninstallation. This i
 A collection to terminal commands to use for JAMF managed endpoints.
 
 # --------------------------------------------
- # Explanation of each Extension Attribute
+ # Extension attributes
 # --------------------------------------------
 
  # Get_HostName
